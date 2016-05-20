@@ -1,0 +1,152 @@
+fileFormatVersion: 2
+guid: 89d2d117702b3b44cba436c5e48b316e
+timeCreated: 1463549972
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Cube
+    100002: Cube_001
+    100004: //RootNode
+    100006: Sphere
+    100008: Body
+    100010: Mengane
+    100012: 11730_kendoarmor_v1_L2_v4
+    100014: 11730_kendoarmor_v1_L2_v4_002
+    100016: 11730_kendoarmor_v1_L2_v4_003
+    100018: 11730_kendoarmor_v1_L2_v4_004
+    100020: 11730_kendoarmor_v1_L2_v4_005
+    100022: 11730_kendoarmor_v1_L2_v4_006
+    100024: 11730_kendoarmor_v1_L2_v4_007
+    100026: 11730_kendoarmor_v1_L2_v4_008
+    100028: 11730_kendoarmor_v1_L2_v4_009
+    100030: Men
+    400000: Cube
+    400002: Cube_001
+    400004: //RootNode
+    400006: Sphere
+    400008: Body
+    400010: Mengane
+    400012: 11730_kendoarmor_v1_L2_v4
+    400014: 11730_kendoarmor_v1_L2_v4_002
+    400016: 11730_kendoarmor_v1_L2_v4_003
+    400018: 11730_kendoarmor_v1_L2_v4_004
+    400020: 11730_kendoarmor_v1_L2_v4_005
+    400022: 11730_kendoarmor_v1_L2_v4_006
+    400024: 11730_kendoarmor_v1_L2_v4_007
+    400026: 11730_kendoarmor_v1_L2_v4_008
+    400028: 11730_kendoarmor_v1_L2_v4_009
+    400030: Men
+    2300000: Cube
+    2300002: Cube_001
+    2300004: Sphere
+    2300006: //RootNode
+    2300008: Body
+    2300010: Mengane
+    2300012: 11730_kendoarmor_v1_L2_v4
+    2300014: 11730_kendoarmor_v1_L2_v4_002
+    2300016: 11730_kendoarmor_v1_L2_v4_003
+    2300018: 11730_kendoarmor_v1_L2_v4_004
+    2300020: 11730_kendoarmor_v1_L2_v4_005
+    2300022: 11730_kendoarmor_v1_L2_v4_006
+    2300024: 11730_kendoarmor_v1_L2_v4_007
+    2300026: 11730_kendoarmor_v1_L2_v4_008
+    2300028: 11730_kendoarmor_v1_L2_v4_009
+    2300030: Men
+    3300000: Cube
+    3300002: Cube_001
+    3300004: Sphere
+    3300006: //RootNode
+    3300008: Body
+    3300010: Mengane
+    3300012: 11730_kendoarmor_v1_L2_v4
+    3300014: 11730_kendoarmor_v1_L2_v4_002
+    3300016: 11730_kendoarmor_v1_L2_v4_003
+    3300018: 11730_kendoarmor_v1_L2_v4_004
+    3300020: 11730_kendoarmor_v1_L2_v4_005
+    3300022: 11730_kendoarmor_v1_L2_v4_006
+    3300024: 11730_kendoarmor_v1_L2_v4_007
+    3300026: 11730_kendoarmor_v1_L2_v4_008
+    3300028: 11730_kendoarmor_v1_L2_v4_009
+    3300030: Men
+    4300000: Cube_001
+    4300002: Cube
+    4300004: Sphere
+    4300006: Men
+    4300008: Body
+    4300010: Mengane
+    4300012: 11730_kendoarmor_v1_L2_v4_009
+    4300014: 11730_kendoarmor_v1_L2_v4_008
+    4300016: 11730_kendoarmor_v1_L2_v4_007
+    4300018: 11730_kendoarmor_v1_L2_v4_006
+    4300020: 11730_kendoarmor_v1_L2_v4_005
+    4300022: 11730_kendoarmor_v1_L2_v4_004
+    4300024: 11730_kendoarmor_v1_L2_v4_002
+    4300026: 11730_kendoarmor_v1_L2_v4_003
+    4300028: 11730_kendoarmor_v1_L2_v4
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
