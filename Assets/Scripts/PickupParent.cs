@@ -4,17 +4,20 @@ using System;
 
 [RequireComponent(typeof(SteamVR_TrackedObject))]
 
-public class PickupParent : MonoBehaviour {
+public class PickupParent : MonoBehaviour
+{
 
     SteamVR_TrackedObject trackedObj;
     SteamVR_Controller.Device device;
     public Transform trShinai;
 
-    void Awake () {
+    void Awake()
+    {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
-	}
-	
-	void FixedUpdate () {
+    }
+
+    void FixedUpdate()
+    {
         device = SteamVR_Controller.Input((int)trackedObj.index);
 
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
@@ -33,7 +36,7 @@ public class PickupParent : MonoBehaviour {
         }
     }
 
-    void OnTriggerStay (Collider col)
+    void OnTriggerStay(Collider col)
     {
         Debug.Log("Collided with " + col.name + "and acivated OnTriggerStay");
         if (device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
