@@ -20,7 +20,7 @@ public class parentFixedJoint : MonoBehaviour {
 
     void OnTriggerStay(Collider col)
     {
-        Debug.Log("Collided with " + col.name + "and acivated OnTriggerStay");
+        //Debug.Log("Collided with " + col.name + "and acivated OnTriggerStay");
         if (fixedJoint == null && device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
         {
             fixedJoint = col.gameObject.AddComponent<FixedJoint>();
