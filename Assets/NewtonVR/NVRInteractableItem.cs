@@ -7,21 +7,15 @@ namespace NewtonVR
     {
         [Tooltip("If you have a specific point you'd like the object held at, create a transform there and set it to this variable")]
         public Transform InteractionPoint;
-        public float HapticStrengthMultiplier;
-        protected float AttachedRotationMagic = 30f;
-        protected float AttachedPositionMagic = 4000f;
-        //Defaults
-        //protected float AttachedRotationMagic = 20f;
-        //protected float AttachedPositionMagic = 3000f;
+        protected float AttachedRotationMagic = 20f;
+        protected float AttachedPositionMagic = 3000f;
 
         protected Transform PickupTransform;
 
         protected override void Awake()
         {
             base.Awake();
-            this.Rigidbody.maxAngularVelocity = 200f;
-            //Default
-            //this.Rigidbody.maxAngularVelocity = 100f;
+            this.Rigidbody.maxAngularVelocity = 100f;
         }
 
         protected Vector3 LastVelocityAddition;
@@ -98,20 +92,7 @@ namespace NewtonVR
                 Destroy(PickupTransform.gameObject);
         }
 
-        public void OnCollisionEnter(Collision collision)
-        {
-            if (IsAttached == true)
-            {
-                foreach (ContactPoint contact in collision.contacts)
-                {
-                    ushort uHapticStrength = (ushort)(HapticStrengthMultiplier * this.Rigidbody.velocity.magnitude);
-                    if (uHapticStrength <= 3000)
-                        AttachedHand.TriggerHapticPulse(uHapticStrength);
-                    else
-                        AttachedHand.LongHapticPulse(HapticStrengthMultiplier * this.Rigidbody.velocity.magnitude);
-                }
-            }
-        }
+
     }
 
 

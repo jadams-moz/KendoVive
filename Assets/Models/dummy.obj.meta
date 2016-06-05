@@ -1,0 +1,155 @@
+fileFormatVersion: 2
+guid: b63e5d1c3c502ea47b4e87db02be9600
+timeCreated: 1465103098
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: default
+    100002: default_MeshPart0
+    100004: default_MeshPart1
+    100006: default_MeshPart2
+    100008: default_MeshPart3
+    100010: //RootNode
+    100012: 11730_kendoarmor_v1_L2_v4.005_11730_kendoarmor_v1_L2_v4.009
+    100014: 11730_kendoarmor_v1_L2_v4.006_11730_kendoarmor_v1_L2_v4.010
+    100016: 11730_kendoarmor_v1_L2_v4.007_11730_kendoarmor_v1_L2_v4.011
+    100018: 11730_kendoarmor_v1_L2_v4.008_11730_kendoarmor_v1_L2_v4.012
+    100020: 11730_kendoarmor_v1_L2_v4.009_11730_kendoarmor_v1_L2_v4.013
+    100022: Body
+    100024: Dou_11730_kendoarmor_v1_L2_v4.004
+    100026: leftKote_11730_kendoarmor_v1_L2_v4.007
+    100028: Men
+    100030: Mengane_Sphere
+    100032: rightKote_11730_kendoarmor_v1_L2_v4.006
+    100034: Tare_11730_kendoarmor_v1_L2_v4.008
+    400000: default
+    400002: default_MeshPart0
+    400004: default_MeshPart1
+    400006: default_MeshPart2
+    400008: default_MeshPart3
+    400010: //RootNode
+    400012: 11730_kendoarmor_v1_L2_v4.005_11730_kendoarmor_v1_L2_v4.009
+    400014: 11730_kendoarmor_v1_L2_v4.006_11730_kendoarmor_v1_L2_v4.010
+    400016: 11730_kendoarmor_v1_L2_v4.007_11730_kendoarmor_v1_L2_v4.011
+    400018: 11730_kendoarmor_v1_L2_v4.008_11730_kendoarmor_v1_L2_v4.012
+    400020: 11730_kendoarmor_v1_L2_v4.009_11730_kendoarmor_v1_L2_v4.013
+    400022: Body
+    400024: Dou_11730_kendoarmor_v1_L2_v4.004
+    400026: leftKote_11730_kendoarmor_v1_L2_v4.007
+    400028: Men
+    400030: Mengane_Sphere
+    400032: rightKote_11730_kendoarmor_v1_L2_v4.006
+    400034: Tare_11730_kendoarmor_v1_L2_v4.008
+    2300000: default_MeshPart0
+    2300002: default_MeshPart1
+    2300004: default_MeshPart2
+    2300006: default_MeshPart3
+    2300008: 11730_kendoarmor_v1_L2_v4.005_11730_kendoarmor_v1_L2_v4.009
+    2300010: 11730_kendoarmor_v1_L2_v4.006_11730_kendoarmor_v1_L2_v4.010
+    2300012: 11730_kendoarmor_v1_L2_v4.007_11730_kendoarmor_v1_L2_v4.011
+    2300014: 11730_kendoarmor_v1_L2_v4.008_11730_kendoarmor_v1_L2_v4.012
+    2300016: 11730_kendoarmor_v1_L2_v4.009_11730_kendoarmor_v1_L2_v4.013
+    2300018: Body
+    2300020: Dou_11730_kendoarmor_v1_L2_v4.004
+    2300022: leftKote_11730_kendoarmor_v1_L2_v4.007
+    2300024: Men
+    2300026: Mengane_Sphere
+    2300028: rightKote_11730_kendoarmor_v1_L2_v4.006
+    2300030: Tare_11730_kendoarmor_v1_L2_v4.008
+    3300000: default_MeshPart0
+    3300002: default_MeshPart1
+    3300004: default_MeshPart2
+    3300006: default_MeshPart3
+    3300008: 11730_kendoarmor_v1_L2_v4.005_11730_kendoarmor_v1_L2_v4.009
+    3300010: 11730_kendoarmor_v1_L2_v4.006_11730_kendoarmor_v1_L2_v4.010
+    3300012: 11730_kendoarmor_v1_L2_v4.007_11730_kendoarmor_v1_L2_v4.011
+    3300014: 11730_kendoarmor_v1_L2_v4.008_11730_kendoarmor_v1_L2_v4.012
+    3300016: 11730_kendoarmor_v1_L2_v4.009_11730_kendoarmor_v1_L2_v4.013
+    3300018: Body
+    3300020: Dou_11730_kendoarmor_v1_L2_v4.004
+    3300022: leftKote_11730_kendoarmor_v1_L2_v4.007
+    3300024: Men
+    3300026: Mengane_Sphere
+    3300028: rightKote_11730_kendoarmor_v1_L2_v4.006
+    3300030: Tare_11730_kendoarmor_v1_L2_v4.008
+    4300000: default_MeshPart0
+    4300002: default_MeshPart1
+    4300004: default_MeshPart2
+    4300006: default_MeshPart3
+    4300008: 11730_kendoarmor_v1_L2_v4.005_11730_kendoarmor_v1_L2_v4.009
+    4300010: 11730_kendoarmor_v1_L2_v4.006_11730_kendoarmor_v1_L2_v4.010
+    4300012: 11730_kendoarmor_v1_L2_v4.007_11730_kendoarmor_v1_L2_v4.011
+    4300014: 11730_kendoarmor_v1_L2_v4.008_11730_kendoarmor_v1_L2_v4.012
+    4300016: 11730_kendoarmor_v1_L2_v4.009_11730_kendoarmor_v1_L2_v4.013
+    4300018: Body
+    4300020: Dou_11730_kendoarmor_v1_L2_v4.004
+    4300022: leftKote_11730_kendoarmor_v1_L2_v4.007
+    4300024: Men
+    4300026: Mengane_Sphere
+    4300028: rightKote_11730_kendoarmor_v1_L2_v4.006
+    4300030: Tare_11730_kendoarmor_v1_L2_v4.008
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
