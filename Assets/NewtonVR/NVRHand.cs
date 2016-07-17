@@ -102,7 +102,20 @@ namespace NewtonVR
             }
 
             SteamVR_Utils.Event.Listen("render_model_loaded", RenderModelLoaded);
+            SteamVR_Utils.Event.Listen("new_poses_applied", OnNewPosesApplied);
         }
+
+        private void OnNewPosesApplied(params object[] args)
+        {
+            if (Controller == null)
+                return;
+
+            if (CurrentlyInteracting != null)
+            {
+                CurrentlyInteracting.OnNewPosesApplied();
+            }
+        }
+
 
         protected virtual void Update()
         {
@@ -185,15 +198,12 @@ namespace NewtonVR
             {
                 CurrentlyInteracting.InteractingUpdate(this);
             }
-
-            if (NVRPlayer.Instance.PhysicalHands == true)
-            {
-                UpdateVisibilityAndColliders();
-            }
+            
+            UpdateVisibilityAndColliders();
         }
 
 
-        public void TriggerHapticPulse(ushort durationMicroSec = 500, EVRButtonId buttonId = EVRButtonId.k_EButton_SteamVR_Touchpad)
+        public void TriggerHapticPulse(ushort durationMicroSec = 500, EVRButtonId buttonId = EVRButtonId.k_EButton_Axis0)
         {
             if (Controller != null)
             {
@@ -208,12 +218,12 @@ namespace NewtonVR
             }
         }
 
-        public void LongHapticPulse(float seconds, EVRButtonId buttonId = EVRButtonId.k_EButton_SteamVR_Touchpad)
+        public void LongHapticPulse(float seconds, EVRButtonId buttonId = EVRButtonId.k_EButton_Axis0)
         {
             StartCoroutine(DoLongHapticPulse(seconds, buttonId));
         }
 
-        private IEnumerator DoLongHapticPulse(float seconds, EVRButtonId buttonId = EVRButtonId.k_EButton_SteamVR_Touchpad)
+        private IEnumerator DoLongHapticPulse(float seconds, EVRButtonId buttonId)
         {
             float startTime = Time.time;
             float endTime = startTime + seconds;
@@ -226,64 +236,85 @@ namespace NewtonVR
 
         private void UpdateVisibilityAndColliders()
         {
-            if (CurrentInteractionStyle == InterationStyle.GripDownToInteract)
+            if (NVRPlayer.Instance.PhysicalHands == true)
             {
-                if (HoldButtonPressed == true && IsInteracting == false)
+                if (CurrentInteractionStyle == InterationStyle.GripDownToInteract)
                 {
-                    if (CurrentHandState != HandState.GripDownNotInteracting && VisibilityLocked == false)
+                    if (HoldButtonPressed == true && IsInteracting == false)
                     {
-                        VisibilityLocked = true;
-                        SetVisibility(VisibilityLevel.Visible);
-                        CurrentHandState = HandState.GripDownNotInteracting;
+                        if (CurrentHandState != HandState.GripDownNotInteracting && VisibilityLocked == false)
+                        {
+                            VisibilityLocked = true;
+                            SetVisibility(VisibilityLevel.Visible);
+                            CurrentHandState = HandState.GripDownNotInteracting;
+                        }
+                    }
+                    else if (HoldButtonDown == true && IsInteracting == true)
+                    {
+                        if (CurrentHandState != HandState.GripDownInteracting && VisibilityLocked == false)
+                        {
+                            VisibilityLocked = true;
+                            if (NVRPlayer.Instance.MakeControllerInvisibleOnInteraction == true)
+                            {
+                                SetVisibility(VisibilityLevel.Invisible);
+                            }
+                            else
+                            {
+                                SetVisibility(VisibilityLevel.Ghost);
+                            }
+                            CurrentHandState = HandState.GripDownInteracting;
+                        }
+                    }
+                    else if (IsInteracting == false)
+                    {
+                        if (CurrentHandState != HandState.Idle && VisibilityLocked == false)
+                        {
+                            SetVisibility(VisibilityLevel.Ghost);
+                            CurrentHandState = HandState.Idle;
+                        }
                     }
                 }
-                else if (HoldButtonDown == true && IsInteracting == true)
+                else if (CurrentInteractionStyle == InterationStyle.GripToggleToInteract)
                 {
-                    if (CurrentHandState != HandState.GripDownInteracting && VisibilityLocked == false)
+                    if (CurrentHandState == HandState.Idle)
                     {
-                        VisibilityLocked = true;
-                        SetVisibility(VisibilityLevel.Ghost);
-                        CurrentHandState = HandState.GripDownInteracting;
+                        if (VisibilityLocked == false && CurrentVisibility != VisibilityLevel.Ghost)
+                        {
+                            SetVisibility(VisibilityLevel.Ghost);
+                        }
+                        else
+                        {
+                            VisibilityLocked = false;
+                        }
+
                     }
-                }
-                else if (IsInteracting == false)
-                {
-                    if (CurrentHandState != HandState.Idle && VisibilityLocked == false)
+                    else if (CurrentHandState == HandState.GripToggleOnInteracting)
                     {
-                        SetVisibility(VisibilityLevel.Ghost);
-                        CurrentHandState = HandState.Idle;
+                        if (VisibilityLocked == false)
+                        {
+                            VisibilityLocked = true;
+                            SetVisibility(VisibilityLevel.Ghost);
+                        }
+                    }
+                    else if (CurrentHandState == HandState.GripToggleOnNotInteracting)
+                    {
+                        if (VisibilityLocked == false)
+                        {
+                            VisibilityLocked = true;
+                            SetVisibility(VisibilityLevel.Visible);
+                        }
                     }
                 }
             }
-            else if (CurrentInteractionStyle == InterationStyle.GripToggleToInteract)
+            else if (NVRPlayer.Instance.PhysicalHands == false && NVRPlayer.Instance.MakeControllerInvisibleOnInteraction == true)
             {
-                if (CurrentHandState == HandState.Idle)
+                if (IsInteracting == true)
                 {
-                    if (VisibilityLocked == false && CurrentVisibility != VisibilityLevel.Ghost)
-                    {
-                        SetVisibility(VisibilityLevel.Ghost);
-                    }
-                    else
-                    {
-                        VisibilityLocked = false;
-                    }
-
+                    SetVisibility(VisibilityLevel.Invisible);
                 }
-                else if (CurrentHandState == HandState.GripToggleOnInteracting)
+                else if (IsInteracting == false)
                 {
-                    if (VisibilityLocked == false)
-                    {
-                        VisibilityLocked = true;
-                        SetVisibility(VisibilityLevel.Ghost);
-                    }
-                }
-                else if (CurrentHandState == HandState.GripToggleOnNotInteracting)
-                {
-                    if (VisibilityLocked == false)
-                    {
-                        VisibilityLocked = true;
-                        SetVisibility(VisibilityLevel.Visible);
-                    }
+                    SetVisibility(VisibilityLevel.Ghost);
                 }
             }
         }
@@ -484,22 +515,44 @@ namespace NewtonVR
             if (CurrentlyInteracting == interactable)
                 CurrentlyInteracting = null;
 
-            CurrentlyHoveringOver.Remove(interactable);
+            if (CurrentlyHoveringOver != null)
+                CurrentlyHoveringOver.Remove(interactable);
         }
 
         private void SetVisibility(VisibilityLevel visibility)
         {
             if (CurrentVisibility != visibility)
             {
+                if (visibility == VisibilityLevel.Invisible)
+                {
+                    if (PhysicalController != null)
+                    {
+                        PhysicalController.Off();
+                    }
+
+                    for (int index = 0; index < GhostRenderers.Length; index++)
+                    {
+                        GhostRenderers[index].enabled = false;
+                    }
+
+                    for (int index = 0; index < GhostColliders.Length; index++)
+                    {
+                        GhostColliders[index].enabled = true;
+                    }
+                }
+
                 if (visibility == VisibilityLevel.Ghost)
                 {
-                    PhysicalController.Off();
+                    if (PhysicalController != null)
+                    {
+                        PhysicalController.Off();
+                    }
 
                     for (int index = 0; index < GhostRenderers.Length; index++)
                     {
                         GhostRenderers[index].enabled = true;
                     }
-                    
+
                     for (int index = 0; index < GhostColliders.Length; index++)
                     {
                         GhostColliders[index].enabled = true;
@@ -508,7 +561,10 @@ namespace NewtonVR
 
                 if (visibility == VisibilityLevel.Visible)
                 {
-                    PhysicalController.On();
+                    if (PhysicalController != null)
+                    {
+                        PhysicalController.On();
+                    }
 
                     for (int index = 0; index < GhostRenderers.Length; index++)
                     {
@@ -527,7 +583,6 @@ namespace NewtonVR
 
         private void RenderModelLoaded(params object[] args)
         {
-            //Debug.Log("RenderModelLoaded");
             SteamVR_RenderModel renderModel = (SteamVR_RenderModel)args[0];
             bool success = (bool)args[1];
 
@@ -546,6 +601,8 @@ namespace NewtonVR
             if (Rigidbody == null)
                 Rigidbody = this.gameObject.AddComponent<Rigidbody>();
             Rigidbody.isKinematic = true;
+            Rigidbody.maxAngularVelocity = float.MaxValue;
+            Rigidbody.useGravity = false;
 
             Collider[] Colliders = null;
 
@@ -609,8 +666,9 @@ namespace NewtonVR
                         break;
                 }
             }
-            else
+            else if (RenderModelInitialized == false)
             {
+                RenderModelInitialized = true;
                 GameObject CustomModelObject = GameObject.Instantiate(CustomModel);
                 Colliders = CustomModelObject.GetComponentsInChildren<Collider>(); //note: these should be trigger colliders
 
@@ -640,8 +698,12 @@ namespace NewtonVR
                 {
                     NVRHelpers.SetTransparent(GhostRenderers[rendererIndex].material, transparentcolor);
                 }
+                
+                if (Colliders != null)
+                {
+                    GhostColliders = Colliders;
+                }
 
-                GhostColliders = Colliders;
                 CurrentVisibility = VisibilityLevel.Ghost;
             }
             else
@@ -655,7 +717,11 @@ namespace NewtonVR
                     NVRHelpers.SetTransparent(GhostRenderers[rendererIndex].material, transparentcolor);
                 }
 
-                GhostColliders = Colliders;
+                if (Colliders != null)
+                {
+                    GhostColliders = Colliders;
+                }
+
                 CurrentVisibility = VisibilityLevel.Ghost;
             }
 
@@ -678,6 +744,12 @@ namespace NewtonVR
             {
                 return this.GetComponentInChildren<SteamVR_RenderModel>().renderModelName;
             }
+        }
+
+        private void OnDestroy()
+        {
+            SteamVR_Utils.Event.Remove("render_model_loaded", RenderModelLoaded);
+            SteamVR_Utils.Event.Remove("new_poses_applied", OnNewPosesApplied);
         }
     }
     

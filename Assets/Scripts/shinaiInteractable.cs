@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace NewtonVR
 {
-    public class shinaiInteractable : NVRInteractableItem
+    public class ShinaiInteractable : NVRInteractableItem
     {
         public float HapticStrengthMultiplier;
         public AudioClip[] hitBamboo;
@@ -13,6 +13,8 @@ namespace NewtonVR
         private AudioSource sliceAudio;
         private Vector3 lastPosition;
         private float lastMagnitude;
+
+
 
         public AudioSource AddAudio()
         {
@@ -27,9 +29,9 @@ namespace NewtonVR
         {
             base.Awake();
             //NewtonVR variable tweakage
-            AttachedRotationMagic = 20f;
-            AttachedPositionMagic = 3000f;
-            this.Rigidbody.maxAngularVelocity = 100f;
+            //AttachedRotationMagic = 20f;
+            //AttachedPositionMagic = 3000f;
+            //this.Rigidbody.maxAngularVelocity = 100f;
 
             //add audio components
             hitAudio = AddAudio();
@@ -74,9 +76,9 @@ namespace NewtonVR
 
         }
 
-        protected override void FixedUpdate()
+        protected void FixedUpdate()
         {
-            base.FixedUpdate();
+            //base.FixedUpdate();
             //shinai tip velocity calc
             Vector3 direction = transform.TransformPoint(Vector3.up * 1.0f) - lastPosition;
             lastPosition = transform.TransformPoint(Vector3.up * 1.0f);
@@ -87,6 +89,7 @@ namespace NewtonVR
                 sliceAudio.volume = 1;
                 sliceAudio.clip = airSlice[Random.Range(0, 3)];
                 sliceAudio.Play();
+
             }
             else if (!sliceAudio.isPlaying && lastMagnitude > 0.15)
             {
@@ -94,6 +97,9 @@ namespace NewtonVR
                 sliceAudio.volume = (lastMagnitude / 0.025F);
                 sliceAudio.Play();
             }
+
+
+
         }
 
         void OnCollisionEnter(Collision collision)
@@ -110,8 +116,9 @@ namespace NewtonVR
                         AttachedHand.LongHapticPulse(1);
 
                     //on hit audio picker
-                    if (collision.gameObject.name == "Men" || collision.gameObject.name == "rightKote" || collision.gameObject.name == "leftKote")
+                    if (collision.gameObject.name == "Men" || collision.gameObject.name == "KoteR" || collision.gameObject.name == "KoteL")
                     {
+                        //Debug.Log("hit " + collision.gameObject.name);
                         if (!hitAudio.isPlaying && lastMagnitude > 0.14)
                         {
                             hitAudio.clip = hitMen[Random.Range(0, 3)];
